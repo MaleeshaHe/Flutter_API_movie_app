@@ -84,7 +84,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Production Companies",
                     style: TextStyle(
                       fontSize: 20,
@@ -97,7 +97,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                       children: List.generate(
                         data.company!.length,
                         (index) => data.company![index].logo.toString() == ""
-                            ? SizedBox()
+                            ? const SizedBox()
                             : Card(
                                 elevation: 5,
                                 child: Column(
