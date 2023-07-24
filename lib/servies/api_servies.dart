@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:http/http.dart';
 import 'package:movie_app/models/movie_details_models.dart';
@@ -23,9 +22,9 @@ class ApiService {
     }
   }
 
-  Future<MovieDetailsModel> getDetails({required int id}) async {
+  Future<MovieDetailsModel> getDetails({required String id}) async {
     Response response = await get(
-      Uri.parse("https://api.themoviedb.org/3/movie/{movie_id}$apiKey"),
+      Uri.parse("https://api.themoviedb.org/3/movie/$id?$apiKey"),
     );
     if (response.statusCode == 200) {
       Map<String, dynamic> json = jsonDecode(response.body);
