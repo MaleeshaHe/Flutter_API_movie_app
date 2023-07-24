@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:http/http.dart';
 import 'package:movie_app/models/movies_models.dart';
@@ -19,5 +20,11 @@ class ApiService {
     } else {
       throw Exception(response.statusCode);
     }
+  }
+
+  Future<void> getDetails() async {
+    Response response = await get(
+      Uri.parse("https://api.themoviedb.org/3/movie/{movie_id}$apiKey"),
+    );
   }
 }
